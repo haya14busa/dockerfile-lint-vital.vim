@@ -1,0 +1,2 @@
+#!/bin/sh
+sh /vim-vimlint/bin/vimlint.sh -l /vim-vimlint -p /vim-vimlparser $@
