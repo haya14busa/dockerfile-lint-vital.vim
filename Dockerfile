@@ -1,6 +1,6 @@
 FROM thinca/vim
 
-ENV REVIEWDOG_VERSION 0.9.1
+ENV REVIEWDOG_VERSION 0.9.3
 ENV REVIEWDOG_URL https://github.com/haya14busa/reviewdog/releases/download/$REVIEWDOG_VERSION/reviewdog_linux_amd64
 
 RUN apk --update --no-cache add \
