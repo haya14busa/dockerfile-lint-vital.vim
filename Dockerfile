@@ -7,7 +7,8 @@ RUN apk --update --no-cache add \
       ca-certificates \
       curl \
       git \
-      python3
+      python3 \
+      go
 
 # make golang binary executable
 RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
@@ -24,3 +25,7 @@ RUN pip3 install --upgrade pip \
 RUN git -c advice.detachedHead=false clone https://github.com/syngan/vim-vimlint --quiet --depth 1 /vim-vimlint \
  && git -c advice.detachedHead=false clone https://github.com/ynkdir/vim-vimlparser --quiet --depth 1 /vim-vimlparser
 COPY ./vimlint /usr/local/bin/vimlint
+
+# for golang linter script using go-vimlparser
+RUN mkdir /go
+ENV GOPATH /go
