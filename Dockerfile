@@ -1,7 +1,8 @@
 FROM thinca/vim
 
-ENV REVIEWDOG_VERSION 0.9.3
+ENV REVIEWDOG_VERSION 0.9.8
 ENV REVIEWDOG_URL https://github.com/haya14busa/reviewdog/releases/download/$REVIEWDOG_VERSION/reviewdog_linux_amd64
+ENV VINT_VERSION 0.3.17
 
 RUN apk --update --no-cache add \
       ca-certificates \
@@ -18,7 +19,7 @@ RUN curl -fSL $REVIEWDOG_URL -o /usr/local/bin/reviewdog && chmod +x /usr/local/
 
 # vint
 RUN pip3 install --upgrade pip \
- && pip3 install vim-vint==0.3.10 \
+ && pip3 install vim-vint==$VINT_VERSION \
  && rm -r /root/.cache
 
 # vim-vimlint
